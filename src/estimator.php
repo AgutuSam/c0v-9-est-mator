@@ -8,13 +8,11 @@ function covid19ImpactEstimator($data)
     $impactCurrentlyInfected = $stats['reportedCases'] * 10;
     $severeImpactCurrentlyInfected = $stats['reportedCases'] * 50;
 
-    $periodType = $stats['periodType'];
-
-    if ($periodType == "days") {
+    if ($stats["periodType"] == "days") {
         $factor = intval($stats['timeToElapse'] / 3);
-    } elseif ($periodType == "weeks") {
+    } elseif ($stats["periodType"]== "weeks") {
         $factor = intval(($stats['timeToElapse'] * 7) / 3);
-    } elseif ($periodType == "months") {
+    } elseif ($stats["periodType"]== "months") {
         $factor = intval(($stats['timeToElapse'] * 30) / 3);
     }
 
@@ -39,11 +37,11 @@ function covid19ImpactEstimator($data)
     $impactCasesForVentilatorsByRequestedTime = intval((2 * $impactInfectionsByRequestedTime) / 100);
     $severeImpactCasesForVentilatorsByRequestedTime = intval((2 * $severeImpactInfectionsByRequestedTime) / 100);
 
-    if ($periodType == "days") {
+    if ($stats["periodType"]== "days") {
         $days = intval($stats['timeToElapse']);
-    } elseif ($periodType == "weeks") {
+    } elseif ($stats["periodType"]== "weeks") {
         $days = intval($stats['timeToElapse'] * 7);
-    } elseif ($periodType == "months") {
+    } elseif ($stats["periodType"]== "months") {
         $days = intval($stats['timeToElapse'] * 30);
     }
 
