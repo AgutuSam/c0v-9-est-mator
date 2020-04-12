@@ -37,11 +37,11 @@ function covid19ImpactEstimator($data)
     $impactCasesForVentilatorsByRequestedTime = intval((2 * $impactInfectionsByRequestedTime) / 100);
     $severeImpactCasesForVentilatorsByRequestedTime = intval((2 * $severeImpactInfectionsByRequestedTime) / 100);
 
-    if ($stats['periodType'] == 'days') {
+    if ($stats['periodType'] = 'days') {
         $days = intval($stats['timeToElapse']);
-    } elseif ($stats['periodType'] == 'weeks') {
+    } elseif ($stats['periodType'] = 'weeks') {
         $days = intval($stats['timeToElapse'] * 7);
-    } elseif ($stats['periodType'] == 'months') {
+    } elseif ($stats['periodType'] = 'months') {
         $days = intval($stats['timeToElapse'] * 30);
     }
 
