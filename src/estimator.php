@@ -8,15 +8,13 @@ function covid19ImpactEstimator($data)
     $impactCurrentlyInfected = $stats['reportedCases'] * 10;
     $severeImpactCurrentlyInfected = $stats['reportedCases'] * 50;
 
-    // if ($stats["periodType"] == "days") {
-    //     $factor = intval($stats['timeToElapse'] / 3);
-    // } elseif ($stats["periodType"]== "weeks") {
-    //     $factor = intval(($stats['timeToElapse'] * 7) / 3);
-    // } elseif ($stats["periodType"]== "months") {
-    //     $factor = intval(($stats['timeToElapse'] * 30) / 3);
-    // }
-
-    $factor = intval($stats['timeToElapse'] / 3);
+    if ($stats["periodType"] == "days") {
+        $factor = intval($stats['timeToElapse'] / 3);
+    } elseif ($stats["periodType"] == "weeks") {
+        $factor = intval(($stats['timeToElapse'] * 7) / 3);
+    } elseif ($stats["periodType"] == "months") {
+        $factor = intval(($stats['timeToElapse'] * 30) / 3);
+    }
 
     $impactInfectionsByRequestedTime = $impactCurrentlyInfected * (pow(2, $factor));
     $severeImpactInfectionsByRequestedTime = $severeImpactCurrentlyInfected * (pow(2, $factor));
@@ -39,15 +37,13 @@ function covid19ImpactEstimator($data)
     $impactCasesForVentilatorsByRequestedTime = intval((2 * $impactInfectionsByRequestedTime) / 100);
     $severeImpactCasesForVentilatorsByRequestedTime = intval((2 * $severeImpactInfectionsByRequestedTime) / 100);
 
-    // if ($stats["periodType"]== "days") {
-    //     $days = intval($stats['timeToElapse']);
-    // } elseif ($stats["periodType"]== "weeks") {
-    //     $days = intval($stats['timeToElapse'] * 7);
-    // } elseif ($stats["periodType"]== "months") {
-    //     $days = intval($stats['timeToElapse'] * 30);
-    // }
-
-    $days = intval($stats['timeToElapse']);
+    if ($stats["periodType"] == "days") {
+        $days = intval($stats['timeToElapse']);
+    } elseif ($stats["periodType"] == "weeks") {
+        $days = intval($stats['timeToElapse'] * 7);
+    } elseif ($stats["periodType"] == "months") {
+        $days = intval($stats['timeToElapse'] * 30);
+    }
 
     $impactDollarsInFlight = intval(
         (
