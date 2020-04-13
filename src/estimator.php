@@ -2,7 +2,7 @@
 
 function covid19ImpactEstimator($data)
 {
-    $stats = ".$data.";
+    $stats = strval($data);
     $stats = preg_replace('/(,|\{)[ \t\n]*(\w+)[ ]*:[ ]*/', '$1"$2":', $stats);
     $stats = json_decode($data, true);
 
