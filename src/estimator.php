@@ -3,8 +3,8 @@
 function covid19ImpactEstimator($data)
 {
     //...
-    $stats = jaysonDecode($data);
-    $stats = json_decode($stats, true);
+    // $stats = jaysonDecode($data);
+    $stats = json_decode($data, true);
     // echo $stats['region']['avgAge'];
     $impactCurrentlyInfected = $stats['reportedCases'] * 10;
     $severeImpactCurrentlyInfected = $stats['reportedCases'] * 50;
@@ -85,12 +85,4 @@ function covid19ImpactEstimator($data)
     }';
 
     return $estimate;
-}
-
-function jaysonDecode($s)
-{
-    // $s = str_replace(array('"',  "'"), array('"', '"'), $s);
-    $s = preg_replace('/(\w+):/i', '"\1":', $s);
-
-    return $s;
 }
