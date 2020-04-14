@@ -68,7 +68,19 @@ function covid19ImpactEstimator($data)
 
     $stats = json_encode($stats);
     $estimate = '{
-        data: '.$data.',
+        data: {
+            region: {
+            name: '.$stats["region"]["name"].',
+            avgAge: '.$stats["region"]["avgAge"].',
+            avgDailyIncomeInUSD: '.$stats["region"]["avgDailyIncomeInUSD"].',
+            avgDailyIncomePopulation: '.$stats["region"]["avgDailyIncomePopulation"].',
+            },
+        periodType: '.$stats["periodType"].',
+        timeToElapse: '.$stats["timeToElapse"].',
+        reportedCases: '.$stats["reportedCases"].', 
+        population: '.$stats["population"].',
+        totalHospitalBeds: '.$stats["totalHospitalBeds"].',
+        },
         impact: {
             currentlyInfected: '.$impactCurrentlyInfected.',
             infectionsByRequestedTime: '.$impactInfectionsByRequestedTime.',
