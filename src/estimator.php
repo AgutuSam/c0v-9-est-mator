@@ -92,7 +92,7 @@ function covid19ImpactEstimator($data)
         "casesForVentilatorsByRequestedTime"=>$impactCasesForVentilatorsByRequestedTime,
         "dollarsInFlight"=>$impactDollarsInFlight
         ],
-        "severImpact"=>
+        "severeImpact"=>
         [
         "currentlyInfected"=>$severeImpactCurrentlyInfected,
         "infectionsByRequestedTime"=>$severeImpactInfectionsByRequestedTime,
@@ -105,8 +105,6 @@ function covid19ImpactEstimator($data)
     );
     
     $estimate = json_encode($main, JSON_PRETTY_PRINT);
-    // echo $estimate;
     $estimate = json_decode($estimate, true);
-    // echo $estimate['data']['region']['avgAge'];
     return $estimate;
 }
