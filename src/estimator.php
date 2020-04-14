@@ -49,14 +49,14 @@ function covid19ImpactEstimator($data)
             (
                 $impactInfectionsByRequestedTime * $stats['region']['avgDailyIncomePopulation']
                 ) * $stats['region']['avgDailyIncomeInUSD']
-                ) * $days
+                ) / $days
     );
     $severeImpactDollarsInFlight = intval(
         (
             (
                 $severeImpactInfectionsByRequestedTime * $stats['region']['avgDailyIncomePopulation']
                 ) * $stats['region']['avgDailyIncomeInUSD']
-                ) * $days
+                ) / $days
     );
 
     $main = array(
