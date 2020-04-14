@@ -2,13 +2,14 @@
 
 function covid19ImpactEstimator($data)
 {
-    echo '<script>
-    var json = JSON.stringify( '.$data.' );
-    </script>';
-    $stats = "<script type='text/javascript'>document.write(json)</script>";
-    // $stats = preg_replace('/(\w+):/i', '"\1":', $stats);
-    // $stats = preg_replace('/(,|\{)[ \t\n]*(\w+)[ ]*:[ ]*/', '$1"$2":', $data);
-    $stats = json_decode($stats, true);
+    // echo '<script>
+    // var json = JSON.stringify( '.$data.' );
+    // </script>';
+    // $stats = "<script type='text/javascript'>document.write(json)</script>";
+    // // $stats = preg_replace('/(\w+):/i', '"\1":', $stats);
+    // // $stats = preg_replace('/(,|\{)[ \t\n]*(\w+)[ ]*:[ ]*/', '$1"$2":', $data);
+    // $stats = json_decode($stats, true);
+    $stats = $data;
 
     $impactCurrentlyInfected = $stats['reportedCases'] * 10;
     $severeImpactCurrentlyInfected = $stats['reportedCases'] * 50;
