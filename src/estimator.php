@@ -21,8 +21,6 @@ function covid19ImpactEstimator($data)
     $impactSevereCasesByRequestedTime = intval((15 * $impactInfectionsByRequestedTime) / 100);
     $severeImpactSevereCasesByRequestedTime = intval((15 * $severeImpactInfectionsByRequestedTime) / 100);
 
-    $expectedHospitalBedsByRequestedTime = intval((35 * $stats['totalHospitalBeds']) / 100);
-
     $impactHospitalBedsByRequestedTime = intval(
         (0.35 * $stats['totalHospitalBeds']) - (0.15 * $impactInfectionsByRequestedTime)
     );
