@@ -69,7 +69,7 @@ function covid19ImpactEstimator($data)
     $stats = json_encode($stats);
     $estimate = '{
         data: {
-            region: {
+            '.$stats["region"].': {
             name: '.$stats["region"]["name"].',
             avgAge: '.$stats["region"]["avgAge"].',
             avgDailyIncomeInUSD: '.$stats["region"]["avgDailyIncomeInUSD"].',
